@@ -1,0 +1,27 @@
+<div class="banner" style="background-image: url(<%= asset_path('cinema-banner.jpeg') %>);">
+  <div class="container">
+    <h1 class="text-center">Save any kind of movies</h1>
+    <p>Whatever</p>
+  </div>
+</div>
+
+<div class="container mt-2">
+  <h2 class="text-center">My Lists</h2>
+  <div class="row cards mt-3">
+      <% @lists.each do |list| %>
+        <div class="col-4">
+          <div class="card mb-4 bg-dark text-white">
+            <img class="card-img" src="<%= asset_path('cinema-banner.jpeg') %>" alt="Card image">
+            <div class="card-img-overlay">
+              <div class="card-body">
+                <h4 class="mt-4 text-center"> <%= list.name %></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
+
+
+<%= link_to "New List", new_list_path(@list) %>

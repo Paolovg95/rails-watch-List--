@@ -1,0 +1,14 @@
+.cards {
+   .col-4 {
+    display: flex;
+    flex-grow: 1;
+    .card {
+      flex-grow: 1;
+      .card-body {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+    }
+  }
+}
