@@ -1,0 +1,6 @@
+<h2>Add movie</h2>
+<%= simple_form_for([@list, @bookmark]) do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie, input_html: { class: 'select2' } %>
+  <%= f.submit %>
+<% end %>

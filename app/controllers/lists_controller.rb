@@ -8,6 +8,11 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
+  def show
+    @list = List.find(params[:id])
+    @bookmark = Bookmark.new
+  end
+
   def create
     @list = List.new(list_params)
     if @list.save
