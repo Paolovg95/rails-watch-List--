@@ -15,12 +15,19 @@
         <% @list.movies.each do |movie| %> <%# List has many movies. @list.movies  %>
           <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
           <div class="col-4">
-            <div class="card">
+            <div class="card mb-4 h-100">
               <%= image_tag movie.poster_url, alt: movie.title, class: 'movie-img' %>
-                <div class="card-body mb-4 h-100">
-                  <h5 class="card-title"><%= movie.title %><span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i></h5>
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%= movie.title %>
+                    <span class="text-muted font-weight-normal">• <%= movie.rating %>
+                    <i class="fas fa-star star-yellow"></i>
+                  </h5>
                   <p class="card-text"><%= movie.overview %></p>
-                  <p class="card-text"><small class="text-muted"><%= bookmark.comment %></small></p>
+                  <p class="card-text">"<small class="text-muted"><%= bookmark.comment %></small>"</p>
+                  <small class="text-right flex-shrink-0">
+                    <%= link_to 'Delete', bookmark_path(bookmark), method: :delete, class: 'text-danger' %>
+                  </small>
                 </div>
             </div>
           </div>
