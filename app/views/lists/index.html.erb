@@ -1,5 +1,6 @@
+<%# INDEX %>
 <div class="page-wrap">
-  <div class="banner" style="background-image: url(<%= asset_path('cinema-banner.jpeg') %>);">
+  <div class="banner" style="background-image: url(<%= cl_image_path("felix-mooneeram-evlkOfkQ5rE-unsplash_a7h2lt")%>);">
     <div class="banner-title">
       <h1 class="text-center">Save any kind of movies</h1>
     </div>
@@ -11,10 +12,10 @@
           <div class="col-4">
             <%= link_to list_path(list) do %> <%# list GET path %>
               <div class="card mb-4 bg-dark">
-                <img class="card-img" src=" <%= asset_path('cinema-banner.jpeg') %>" alt="Card image">
+                <img class="card-img" <%= cl_image_path("felix-mooneeram-evlkOfkQ5rE-unsplash_a7h2lt")%>>
                 <div class="card-img-overlay">
-                  <div class="card-body">
-                    <h2 class="mt-4 text-center"> <%= list.name %></h1>
+                  <div class="card-body text-center">
+                    <h2 class="mt-4"> <%= list.name %></h1>
                   </div>
                 </div>
               </div>
