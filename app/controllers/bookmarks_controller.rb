@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   before_action :find_bookmark, only: [:destroy]
   before_action :find_list, only: [:new,:create]
+
   def new
     @bookmark = Bookmark.new
   end
@@ -23,7 +24,7 @@ class BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:comment, :movie_id, photos: [])
+    params.require(:bookmark).permit(:comment, :movie_id, :photo)
   end
 
   def find_bookmark

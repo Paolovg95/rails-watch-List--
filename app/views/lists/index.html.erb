@@ -1,28 +1,24 @@
 <%# INDEX %>
 <div class="page-wrap">
   <div class="banner" style="background-image: url(<%= cl_image_path("v1634758249/felix-mooneeram-evlkOfkQ5rE-unsplash_a7h2lt.jpg")%>);">
-    <div class="banner-title">
-      <h1 class="text-center">Save any kind of movies</h1>
+    <p class="text-center">Save any kind of movies</p>
+  </div>
+
+  <div class="container mt-0.5 bg-black">
+    <div class="row">
+      <% @lists.each do |list| %>
+        <div class="col-4">
+          <%= link_to list_path(list) do %> <%# list GET path %>
+            <div class="card-category"  style= "background-image: url(<%= cl_image_path("v1634758249/felix-mooneeram-evlkOfkQ5rE-unsplash_a7h2lt.jpg")%>);" data-aos="fade-in">
+              <%= list.name %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 
-  <div class="container mt-2">
-    <h2 class="text-center">My Lists</h2>
-  </div>
-
-  <div class="row">
-    <% @lists.each do |list| %>
-      <div class="col-4">
-        <%= link_to list_path(list) do %> <%# list GET path %>
-          <div class="card-category" style= "background-image: url(<%= cl_image_path("v1634758249/felix-mooneeram-evlkOfkQ5rE-unsplash_a7h2lt.jpg")%>);">
-            <%= list.name %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
 </div>
 
 
-<%= link_to "New List", new_list_path(@list) %>
 </div>

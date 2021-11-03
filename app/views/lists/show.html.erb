@@ -1,41 +1,34 @@
-  <%# LIST %>
   <div class="page-wrap">
     <div class="banner" style="background-image: url(<%= cl_image_path("felix-mooneeram-evlkOfkQ5rE-unsplash_a7h2lt")%>);">
-      <div class="banner-title">
-        <h1 class="text-center"><%= @list.name %></h1>
-      </div>
+      <p class="text-center"><%= @list.name %></h1>
     </div>
 
-    <div class="container mt-2">
+    <div class="categories mt-2">
       <div>
-        <%= link_to 'add a movie', new_list_bookmark_path(@list), class: 'btn btn-secondary' %>
+        <%= link_to 'Add a movie', new_list_bookmark_path(@list),class: "btn btn-outline-warning border-none mt-3 mr-3 px-5" %>
       </div>
-      <h2 class="text-center">My <%= @list.name %> list</h2>
+      <p class="text-center">My <%= @list.name %> list</p>
       <p class="text-center"><em><%= "No movies on your list!" if @list.movies.empty? %></em></p>
-      <div class="row mt-4">
-        <%# <% raise %>
-        <% @list.movies.each do |movie| %> <%# List has many movies. @list.movies  %>
-            <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-          <%# <% @bookmark.photos.each do |photo| %>
-            <div class="col-4">
-              <div class="card mb-4 h-100">
-                <%# <%= cl_image_tag photo.key, crop: :fill %>
-                <%= image_tag  movie.poster_url, alt: movie.title, class: 'movie-img'%>
-                  <div class="card-body">
-                    <h5 class="card-title">
-                      <%= movie.title %>
-                      <span class="text-muted font-weight-normal">• <%= movie.rating %>
-                      <i class="fas fa-star star-yellow"></i>
-                    </h5>
-                    <p class="card-text"><%= movie.overview %></p>
-                    <p class="card-text">"<small class="text-muted"><%= bookmark.comment %></small>"</p>
-                    <small class="text-right flex-shrink-0">
-                      <%= link_to 'Delete', bookmark_path(bookmark), method: :delete, class: 'text-danger' %>
-                    </small>
-                  </div>
-              </div>
+      <div class="row movies">
+        <% @list.movies.each do |movie| %>
+          <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+          <div class="col-4">
+            <div class="card mb-2 h-80">
+              <%= image_tag  movie.poster_url, alt: movie.title, class: 'movie-img'%>
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%= movie.title %>
+                    <span class="text-muted font-weight-normal">• <%= movie.rating %>
+                    <i class="fas fa-star star-yellow"></i>
+                  </h5>
+                  <p class="card-text"><%= movie.overview %></p>
+                  <p class="card-text">"<small class="text-muted"><%= bookmark.comment %></small>"</p>
+                  <small class="text-right flex-shrink-0">
+                    <%= link_to 'Delete', bookmark_path(bookmark), method: :delete, class: 'text-danger' %>
+                  </small>
+                </div>
             </div>
-          <%# <% end %>
+          </div>
         <% end %>
       </div>
     </div>

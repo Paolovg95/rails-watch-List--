@@ -1,8 +1,10 @@
-<%# BOOOKMARK NEW %>
-<h2>Add movie</h2>
-<%= simple_form_for([@list, @bookmark]) do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie, input_html: { class: 'select2' } %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-<% end %>
+<div class="row booksmarks justify-content-center">
+  <div class="col-6">
+    <h2>Add movie</h2>
+    <%= simple_form_for([@list, @bookmark]) do |f| %>
+      <%= f.input :comment %>
+      <%= f.association :movie, input_html: { class: 'select2' } %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
